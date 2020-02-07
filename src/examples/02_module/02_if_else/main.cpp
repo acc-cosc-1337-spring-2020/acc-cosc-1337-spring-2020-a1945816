@@ -23,5 +23,6 @@ int main()
 	cout << "generation is: " << result;
 
 
+
 	return 0;
 }
