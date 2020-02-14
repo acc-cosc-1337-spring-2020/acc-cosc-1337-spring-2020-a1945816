@@ -18,7 +18,6 @@ int main()
 		
 		cout << "Enter a number: ";
 		cin >> num;
-		factorial(num);
 		
 		cout << "The factorial is: " << factorial(num) << "\n";
 
