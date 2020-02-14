@@ -11,6 +11,19 @@ factorial.  Also, loop continues as long as user wants to.
 */
 int main() 
 {
+	int cont;
+	do 
+	{
+		int num;
+		
+		cout << "Enter a number: ";
+		cin >> num;
+		factorial(num);
+		
+		cout << "The factorial is: " << factorial(num) << "\n";
 
+		cout << "Press 1 to continue: ";
+		cin >> cont;
+	} while (cont == 1);
 	return 0;
 }
