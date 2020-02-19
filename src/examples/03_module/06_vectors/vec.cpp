@@ -1,6 +1,7 @@
 #include "for_ranged.h"
 #include<iostream>
 #include<vector>
+#include "vec.h"
 
 using std::vector;
 
