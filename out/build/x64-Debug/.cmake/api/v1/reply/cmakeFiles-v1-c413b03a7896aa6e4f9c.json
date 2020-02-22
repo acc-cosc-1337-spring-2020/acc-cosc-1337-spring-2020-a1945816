@@ -127,7 +127,28 @@
 			"path" : "src/classwork/CMakeLists.txt"
 		},
 		{
+			"path" : "src/classwork/01_assign/CMakeLists.txt"
+		},
+		{
 			"path" : "src/examples/CMakeLists.txt"
+		},
+		{
+			"path" : "src/examples/01_module/CMakeLists.txt"
+		},
+		{
+			"path" : "src/examples/01_module/01_output/CMakeLists.txt"
+		},
+		{
+			"path" : "src/examples/01_module/02_variables/CMakeLists.txt"
+		},
+		{
+			"path" : "src/examples/01_module/03_input/CMakeLists.txt"
+		},
+		{
+			"path" : "src/examples/01_module/04_expressions/CMakeLists.txt"
+		},
+		{
+			"path" : "src/examples/01_module/05_auto/CMakeLists.txt"
 		},
 		{
 			"path" : "src/homework/CMakeLists.txt"
@@ -142,7 +163,13 @@
 			"path" : "test/classwork_test/CMakeLists.txt"
 		},
 		{
+			"path" : "test/classwork_test/01_assign_test/CMakeLists.txt"
+		},
+		{
 			"path" : "test/examples_test/CMakeLists.txt"
+		},
+		{
+			"path" : "test/examples_test/01_module_test/CMakeLists.txt"
 		},
 		{
 			"path" : "test/homework_test/CMakeLists.txt"
