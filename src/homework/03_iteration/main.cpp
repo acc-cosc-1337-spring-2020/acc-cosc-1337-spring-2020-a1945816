@@ -42,7 +42,7 @@ int main()
 			cout << dnac;
 		}
 
-		cout << "Would you like to continue y/n: ";
+		cout << "\nWould you like to continue y/n: ";
 		cin >> choice;
 	} while (choice == "y" || choice == "Y");
 
