@@ -24,9 +24,15 @@ int main()
 	rectangle.push_back(area1);
 	rectangle.push_back(area2);
 
+	auto total{ 0 };
+
 	for (int i = 0; i < rectangle.size(); ++i)
 	{
 		cout << rectangle[i].get_area() << "\n";
+		total += rectangle[i].get_area();
 	}
+
+	cout << "Total area: " << total;
+
 	return 0;
 }
