@@ -28,7 +28,7 @@ TEST_CASE("Verify get max from vector function")
 	REQUIRE(get_max_from_vector(nums) == 1000);
 
 	std::vector<int> nums2{ 15,12,11,99,88 };
-	REQUIRE(get_max_from_vector(nums) == 99);
+	REQUIRE(get_max_from_vector(nums2) == 99);
 
 	std::vector<int> nums3{ 150,120,11,990,88888 };
 	REQUIRE(get_max_from_vector(nums3) == 88888);

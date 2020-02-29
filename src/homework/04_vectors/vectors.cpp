@@ -17,7 +17,7 @@ int get_max_from_vector(const std::vector<int>& nums)
 	{
 		if (nums[i] > max)
 		{
-			max = (i);
+			max = nums[i];
 		}
 		
 	}
