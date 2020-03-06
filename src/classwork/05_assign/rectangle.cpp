@@ -7,6 +7,12 @@ Write the class function code for the Rectangle class with one constructor that 
 has one public function area that returns the area of the rectangle, and one private function calculate_area
 that calculates area of the rectangle.  The class has 3 int private variables area, width, and height.
 */
+std::ostream& operator<<(std::ostream& out, const Rect& area)
+{
+
+	cout << "The area is: " << area.get_area();
+	return out;
+}
 
 void Rect::calculate_area()
 {
