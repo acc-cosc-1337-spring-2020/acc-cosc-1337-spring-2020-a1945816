@@ -32,11 +32,3 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for each subdirectory.
-  include("C:/Users/zoobu/source/repos/acc-cosc-1337-spring-2020-a1945816/out/build/x64-Debug/test/classwork_test/01_assign_test/cmake_install.cmake")
-  include("C:/Users/zoobu/source/repos/acc-cosc-1337-spring-2020-a1945816/out/build/x64-Debug/test/classwork_test/04_assign_test/cmake_install.cmake")
-  include("C:/Users/zoobu/source/repos/acc-cosc-1337-spring-2020-a1945816/out/build/x64-Debug/test/classwork_test/05_assign_test/cmake_install.cmake")
-
-endif()
-

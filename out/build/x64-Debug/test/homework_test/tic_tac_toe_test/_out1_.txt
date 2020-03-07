@@ -1,0 +1,22 @@
+﻿
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+tic_tac_toe_tests.exe is a Catch v2.2.2 host application.
+Run with -? for options
+
+-------------------------------------------------------------------------------
+Verify Test Configuration
+-------------------------------------------------------------------------------
+..\..\..\test\homework_test\tic_tac_toe_test\tic_tac_toe_test.cpp(4)
+...............................................................................
+
+..\..\..\test\homework_test\tic_tac_toe_test\tic_tac_toe_test.cpp(5): 
+PASSED:
+  REQUIRE( true == true )
+
+-------------------------------------------------------------------------------
+Test can't call mark board before start game
+-------------------------------------------------------------------------------
+..\..\..\test\homework_test\tic_tac_toe_test\tic_tac_toe_test.cpp(8)
+...............................................................................
+
+..\..\..\test\homework_test\tic_tac_toe_te
