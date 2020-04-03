@@ -1,7 +1,8 @@
 //bank_account.h
 #include <string>
 #include<iostream>
-
+#include <vector>
+using std::vector;
 #ifndef BANK_ACCOUNT_H //header guard
 #define BANK_ACCOUNT_H
 class BankAccount
@@ -9,7 +10,7 @@ class BankAccount
 public:
 	BankAccount() = default;
 	explicit BankAccount(int b) : balance{ b } {}
-	int get_balance()const { return balance; }
+	virtual int get_balance()const { return balance; }
 	void deposit(int amount);
 	void withdraw(int amount);
 	void open(int amount);
