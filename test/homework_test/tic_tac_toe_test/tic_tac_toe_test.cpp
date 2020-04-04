@@ -48,11 +48,11 @@ TEST_CASE("Test start game with O flow")
 	game.mark_board(2);
 	REQUIRE(game.get_player() == "X");
 }
-
+//Testing Game over Scenarios, Tie or win
 TEST_CASE("Test game over")
 {
 	TicTacToe game;
-	game.start_game("O");
+	game.start_game("X");
 	for (int i = 1; i < 9; ++i)
 	{
 		game.mark_board(i);
@@ -62,7 +62,7 @@ TEST_CASE("Test game over")
 	REQUIRE(game.game_over() == true);
 }
 
-//Testing win conditions
+
 TEST_CASE("Test first Column win")
 {
 	TicTacToe game;
@@ -230,6 +230,8 @@ TEST_CASE("Test for tie")
 	REQUIRE(game.game_over() == false);
 	game.mark_board(3);//X          
 	
-	//X wins
+	//C wins
 	REQUIRE(game.game_over() == true);
+	
+
 }
