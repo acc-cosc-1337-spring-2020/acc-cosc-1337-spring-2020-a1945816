@@ -2,49 +2,53 @@
 #include "catch.hpp"
 #include "bank_account.h"
 #include "checking_account.h"
+#include "savings_account.h"
+#include <memory>
+
+using std::make_unique; using std::unique_ptr;
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
 }
 
 TEST_CASE("Verify bank account constructor")
 {
-	BankAccount account(500);
-	REQUIRE(account.get_balance() == 500);
+	unique_ptr<BankAccount> account = make_unique<SavingsAccount>(500); //Creates an instance of Savings
+	REQUIRE(account->get_balance() == 500);
 }
 
 TEST_CASE("verify bank account deposit")
 {
-	BankAccount account(500);
-	REQUIRE(account.get_balance() == 500);
+	unique_ptr<BankAccount> account = make_unique<SavingsAccount>(500); //Creates an instance of Savings
+	REQUIRE(account->get_balance() == 500);
 
-	account.deposit(50);
-	REQUIRE(account.get_balance() == 550);
+	account->deposit(50);
+	REQUIRE(account->get_balance() == 550);
 
-	REQUIRE_THROWS_AS(account.deposit(-50), Invalid);
-	REQUIRE(account.get_balance() == 550);
+	REQUIRE_THROWS_AS(account->deposit(-50), Invalid);
+	REQUIRE(account->get_balance() == 550);
 }
 
 TEST_CASE("Verify bank account withdraw")
 {
-	BankAccount account(500);
-	REQUIRE(account.get_balance() == 500);
+	unique_ptr<BankAccount> account = make_unique<SavingsAccount>(500); //Creates an instance of Savings
+	REQUIRE(account->get_balance() == 500);
 
-	account.withdraw(50);
-	REQUIRE(account.get_balance() == 450);
+	account->withdraw(50);
+	REQUIRE(account->get_balance() == 450);
 
-	REQUIRE_THROWS_AS(account.withdraw(-1), Invalid);
-	REQUIRE(account.get_balance() == 450);
+	REQUIRE_THROWS_AS(account->withdraw(-1), Invalid);
+	REQUIRE(account->get_balance() == 450);
 
-	REQUIRE_THROWS_AS(account.withdraw(451), Invalid);
-	REQUIRE(account.get_balance() == 450);
+	REQUIRE_THROWS_AS(account->withdraw(451), Invalid);
+	REQUIRE(account->get_balance() == 450);
 
 
 }
 
 TEST_CASE("Test BankAccount default constructor balance 0")
 {
-	BankAccount account;
-	REQUIRE(account.get_balance() == 0);
+	unique_ptr<BankAccount> account = make_unique<SavingsAccount>(); //Creates an instance of Savings
+	REQUIRE(account->get_balance() == 500);
 }
 
 TEST_CASE("Test BankAccount initial open deposit >= 25")
