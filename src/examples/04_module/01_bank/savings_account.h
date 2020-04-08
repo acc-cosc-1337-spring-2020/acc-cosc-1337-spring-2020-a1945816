@@ -5,6 +5,6 @@ class SavingsAccount : public BankAccount
 public:
 	SavingsAccount() = default;
 	explicit SavingsAccount(int b) : BankAccount(b) {}
-	int get_balance()const { return 5000; }
+	int get_balance()const { return balance; }
 private:
 };
