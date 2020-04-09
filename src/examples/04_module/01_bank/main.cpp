@@ -3,6 +3,7 @@
 #include <iostream>
 #include<memory>
 #include "customer.h"
+#include "atm.h"
 using std::cout; using std::cin;
 using std::unique_ptr; using std::make_unique;
 int main()
@@ -11,15 +12,14 @@ int main()
 	unique_ptr<BankAccount> s = make_unique<SavingsAccount>(90); //Creates an instance of Savings
 	unique_ptr<BankAccount> c = make_unique<CheckingAccount> (100);//Creates an instance of checking
 	
-	vector<unique_ptr<BankAccount>> accounts;
-	accounts.push_back(std::move(s));
-	accounts.push_back(std::move(c));
-	for (auto &act : accounts)
-	{
-		cout << act->get_balance() << "\n";
-	}
-
 	
+	
+	Customer cust;
+	cust.add_account(s);
+	cust.add_account(c);
+
+	ATM atm(cust);
+	cout << atm;
 	
 	
 	
