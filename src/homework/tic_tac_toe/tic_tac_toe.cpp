@@ -67,6 +67,7 @@ bool TicTacToe::check_board_full()
 			return false;
 		}
 	}
+	winner = "C";
 	return true;
 }
 
@@ -348,7 +349,23 @@ bool TicTacToe::game_over()
 	}
 	else
 	{
+		
 		return false;
 	}
 }
 
+std::istream & operator>>(std::istream & in, TicTacToe & p)
+{
+	int position;
+	cin >> position;
+	try
+	{
+		p.mark_board(position);
+		p.display_board();
+	}
+	catch (Error e)
+	{
+		cout << e.get_message() << "\n";
+	}
+	return in;
+}

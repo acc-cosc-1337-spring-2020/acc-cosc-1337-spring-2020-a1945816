@@ -36,6 +36,7 @@ TEST_CASE("Test start game with X flow")
 	TicTacToe game;
 	game.start_game("X");
 	REQUIRE(game.get_player() == "X");
+	game.game_over();
 	game.mark_board(4);
 	REQUIRE(game.get_player() == "O");
 }
@@ -45,6 +46,7 @@ TEST_CASE("Test start game with O flow")
 	TicTacToe game;
 	game.start_game("O");
 	REQUIRE(game.get_player() == "O");
+	game.game_over();
 	game.mark_board(2);
 	REQUIRE(game.get_player() == "X");
 }
@@ -79,6 +81,7 @@ TEST_CASE("Test first Column win")
 	game.mark_board(7);//X
 	//X wins
 	REQUIRE(game.game_over() == true);
+	REQUIRE(game.get_winner() == "X");
 }
 
 TEST_CASE("Test second Column win")
@@ -97,6 +100,7 @@ TEST_CASE("Test second Column win")
 	game.mark_board(8);//X
 	//X wins
 	REQUIRE(game.game_over() == true);
+	REQUIRE(game.get_winner() == "X");
 }
 
 TEST_CASE("Test third Column win")
@@ -115,6 +119,7 @@ TEST_CASE("Test third Column win")
 	game.mark_board(9);//X
 	//X wins
 	REQUIRE(game.game_over() == true);
+	REQUIRE(game.get_winner() == "X");
 }
 
 TEST_CASE("Test first row win")
@@ -133,6 +138,7 @@ TEST_CASE("Test first row win")
 	game.mark_board(3);//X
 	//X wins
 	REQUIRE(game.game_over() == true);
+	REQUIRE(game.get_winner() == "X");
 }
 
 TEST_CASE("Test second row win")
@@ -151,6 +157,7 @@ TEST_CASE("Test second row win")
 	game.mark_board(6);//X
 	//X wins
 	REQUIRE(game.game_over() == true);
+	REQUIRE(game.get_winner() == "X");
 }
 
 TEST_CASE("Test third row win")
@@ -169,6 +176,7 @@ TEST_CASE("Test third row win")
 	game.mark_board(9);//X
 	//X wins
 	REQUIRE(game.game_over() == true);
+	REQUIRE(game.get_winner() == "X");
 }
 
 TEST_CASE("Test diag top left  win")
@@ -187,6 +195,7 @@ TEST_CASE("Test diag top left  win")
 	game.mark_board(9);//X
 	//X wins
 	REQUIRE(game.game_over() == true);
+	REQUIRE(game.get_winner() == "X");
 }
 
 TEST_CASE("Test diag bottom left  win")
@@ -205,6 +214,7 @@ TEST_CASE("Test diag bottom left  win")
 	game.mark_board(3);//X
 	//X wins
 	REQUIRE(game.game_over() == true);
+	REQUIRE(game.get_winner() == "X");
 }
 
 TEST_CASE("Test for tie")
@@ -232,6 +242,6 @@ TEST_CASE("Test for tie")
 	
 	//C wins
 	REQUIRE(game.game_over() == true);
-	
-
+	REQUIRE(game.get_winner() == "C");
 }
+	

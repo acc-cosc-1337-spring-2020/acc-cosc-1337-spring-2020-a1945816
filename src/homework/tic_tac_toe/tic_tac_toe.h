@@ -1,5 +1,6 @@
 //h
-
+#ifndef TIC_TAC_TOE_H
+#define TIC_TAC_TOE_H
 #include <string>
 #include <iostream>
 #include<vector>
@@ -13,7 +14,8 @@ public:
 	void mark_board(int position);
 	string get_player() const { return player; }
 	void display_board() const;
-	string get_winner() { return winner; }
+	string get_winner() {return winner; }
+	friend std::istream& operator>> (std::istream& in, TicTacToe& p);
 private:
 	bool check_column_win();
 	bool check_row_win();
@@ -25,8 +27,9 @@ private:
 	string player = "";
 	string winner = "";
 	std::vector<string> pegs{ 9, " " };
-
+	
 };
+#endif
 
 class Error 
 {
