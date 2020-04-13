@@ -28,9 +28,10 @@ int main()
 		{
 			while (game.game_over() == false)
 			{
-				cout << "choose a position between 1 and 9: " << "\n";
-				cin >> position;
+				cin >> game;
+				
 			}
+			cout << game;
 		}
 		catch (Error e)
 		{

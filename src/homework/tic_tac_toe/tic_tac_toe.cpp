@@ -356,6 +356,7 @@ bool TicTacToe::game_over()
 
 std::istream & operator>>(std::istream & in, TicTacToe & p)
 {
+	cout << "Enter position: ";
 	int position;
 	cin >> position;
 	try
@@ -369,3 +370,14 @@ std::istream & operator>>(std::istream & in, TicTacToe & p)
 	}
 	return in;
 }
+
+std::ostream & operator<<(std::ostream & out, const TicTacToe & game)
+{
+	out << "\n";
+
+	for (std::size_t i = 0; i < 9; i += 3) {
+		out << game.pegs[i] << " | " << game.pegs[i + 1] << " | " << game.pegs[i + 2] << "\n";
+	}
+	return out;
+}
+
