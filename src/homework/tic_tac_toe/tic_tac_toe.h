@@ -17,17 +17,24 @@ public:
 	string get_winner() {return winner; }
 	friend std::ostream& operator<<(std::ostream & out, const TicTacToe &game);
 	friend std::istream& operator>>(std::istream & in, TicTacToe &game);
-private:
-	bool check_column_win();
-	bool check_row_win();
-	bool check_diagonal_win();
+
+protected:
+	std::vector<string> pegs{ 9, " " };
+	virtual bool check_column_win();
+	virtual bool check_row_win();
+	virtual bool check_diagonal_win();
 	void set_winner();
+	string winner = "";
+
+private:
+	
+	
 	void set_next_player();
 	bool check_board_full();
 	void clear_board();
 	string player = "";
-	string winner = "";
-	std::vector<string> pegs{ 9, " " };
+	
+	
 	
 };
 
