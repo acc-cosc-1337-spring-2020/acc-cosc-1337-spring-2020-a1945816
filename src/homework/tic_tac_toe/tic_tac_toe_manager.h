@@ -5,10 +5,10 @@
 #include<vector>
 #include <iostream>
 #include "tic_tac_toe.h"
-class TicTacToeManager : public TicTacToe
+class TicTacToeManager
 {
 public:
-	void save_game(const TicTacToe b);
+	void save_game(TicTacToe b);
 
 	friend std::ostream& operator<<(std::ostream& out, const TicTacToeManager& manager);
 	

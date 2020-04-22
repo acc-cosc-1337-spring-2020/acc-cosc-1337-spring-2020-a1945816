@@ -36,9 +36,9 @@ int main()
 				while (game.game_over() == false)
 				{
 					cin >> game;
-
+					cout << game;
 				}
-				cout << game;
+				
 			}
 			catch (Error e)
 			{
@@ -71,9 +71,9 @@ int main()
 				while (game.game_over() == false)
 				{
 					cin >> game;
-
+					cout << game;
 				}
-				cout << game;
+				
 			}
 			catch (Error e)
 			{

@@ -22,9 +22,9 @@ void TicTacToe::start_game(string first_player)
 
 void TicTacToe::mark_board(int position)
 {
-	if (position < 1 || position > 9)
+	if (position < 1 || position > pegs.size())
 	{
-		throw Error("Position must be between 1 and 9.");
+		throw Error("Position out of range.");
 	}
 
 	else if (player == "")
@@ -37,13 +37,6 @@ void TicTacToe::mark_board(int position)
 	set_next_player();
 }
 
-void TicTacToe::display_board() const
-{
-	for (int i = 0; i < 9; i += 3) 
-	{
-		cout << pegs[i] << "|" << pegs[i + 1] << "|" << pegs[i + 2]<< "\n";
-	}
-}
 
 
 void TicTacToe::set_next_player()
@@ -119,14 +112,17 @@ bool TicTacToe::game_over()
 {
 	if (check_column_win() == true)
 	{
+		set_winner();
 		return true;
 	}
 	else if (check_diagonal_win() == true)
 	{
+		set_winner();
 		return true;
 	}
 	else if (check_row_win() == true)
 	{
+		set_winner();
 		return true;
 	}
 	else if (check_board_full() == true)
@@ -150,7 +146,6 @@ std::istream & operator>>(std::istream & in, TicTacToe & p)
 	try
 	{
 		p.mark_board(position);
-		p.display_board();
 	}
 	catch (Error e)
 	{
@@ -159,12 +154,20 @@ std::istream & operator>>(std::istream & in, TicTacToe & p)
 	return in;
 }
 
-std::ostream & operator<<(std::ostream & out, const TicTacToe & game)
+std::ostream & operator<<(std::ostream & out, const TicTacToe & t)
 {
 	out << "\n";
 
-	for (std::size_t i = 0; i < 9; i += 3) {
-		out << game.pegs[i] << " | " << game.pegs[i + 1] << " | " << game.pegs[i + 2] << "\n";
+	for (std::size_t i = 0; i < t.pegs.size(); i += sqrt(t.pegs.size()))
+	{
+		out << t.pegs[i] << "|" << t.pegs[i + 1] << "|" << t.pegs[i + 2];
+
+		if (t.pegs.size() == 16)
+		{
+			out << "|" << t.pegs[i + 3];
+		}
+
+		out << "\n";
 	}
 	return out;
 }
