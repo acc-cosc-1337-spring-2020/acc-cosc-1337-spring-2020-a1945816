@@ -9,11 +9,12 @@ class Vector
 {
 public:
 	Vector(size_t sz);
-	Vector(const Vector& v); //copy constructor
+	Vector(const Vector& v); //copy constructor - rule of 3
+	Vector& operator=(const Vector& v); //copy assignment rule of 3
 	size_t Size() const { return size;  }
 	int& operator[](int i) { return nums[i]; }
 	int& operator[](int i)const { return nums[i]; }
-	~Vector();
+	~Vector(); // destructor - rule of 3
 private:
 	size_t size;
 	int* nums;

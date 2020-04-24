@@ -47,3 +47,26 @@ void use_vector()
 	v1 = nullptr;
 
 }
+/*
+Allocate temporary dynamic arroy of size v
+copy v1elements to temp array
+deallocate old v2 nums array
+point v2 nums array to temp array
+set v2 size to v1 size
+return self copy of vector
+*/
+Vector & Vector::operator=(const Vector &v)
+{
+	int* temp = new int[v.size];
+
+	for (size_t i = 0; i < v.size; ++i)
+	{
+		temp[i] = v[i];
+
+	}
+	delete nums;
+	nums = temp;
+	size = v.size;
+
+	return *this;
+}
