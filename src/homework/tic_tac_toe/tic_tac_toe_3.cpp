@@ -9,238 +9,7 @@ Win by column if and return true if
 else
 false
 */
-bool TicTacToe3::check_column_win()
-{
-	if (TicTacToe::pegs[0] == "X")
-	{
-		if (pegs[3] == "X")
-		{
-			if (pegs[6] == "X")
-			{
-				set_winner();
-				cout << winner << " Wins! \n";
-				return true;
-			}
-		}
 
-	}
-	else if (pegs[1] == "X")
-	{
-		if (pegs[4] == "X")
-		{
-			if (pegs[7] == "X")
-			{
-				set_winner();
-				cout << winner << " Wins! \n";
-				return true;
-			}
-		}
-
-	}
-	else if (pegs[2] == "X")
-	{
-		if (pegs[5] == "X")
-		{
-			if (pegs[8] == "X")
-			{
-				set_winner();
-				cout << winner << " Wins! \n";
-				return true;
-			}
-		}
-
-	}
-	else if (pegs[0] == "O")
-	{
-		if (pegs[3] == "O")
-		{
-			if (pegs[6] == "O")
-			{
-				set_winner();
-				cout << winner << " Wins! \n";
-				return true;
-			}
-		}
-
-	}
-	else if (pegs[1] == "O")
-	{
-		if (pegs[4] == "O")
-		{
-			if (pegs[7] == "O")
-			{
-				set_winner();
-				cout << winner << " Wins! \n";
-				return true;
-			}
-		}
-
-	}
-	else if (pegs[2] == "O")
-	{
-		if (pegs[5] == "O")
-		{
-			if (pegs[8] == "O")
-			{
-				set_winner();
-				cout << winner << " Wins! \n";
-				return true;
-			}
-		}
-
-	}
-	else
-	{
-		return false;
-	}
-}
-
-bool TicTacToe3::check_row_win()
-{
-	if (pegs[0] == "X")
-	{
-		if (pegs[1] == "X")
-		{
-			if (pegs[2] == "X")
-			{
-				set_winner();
-				cout << winner << " Wins! \n";
-				return true;
-			}
-		}
-
-	}
-	else if (pegs[3] == "X")
-	{
-		if (pegs[4] == "X")
-		{
-			if (pegs[5] == "X")
-			{
-				set_winner();
-				cout << winner << " Wins! \n";
-				return true;
-			}
-		}
-
-	}
-	else if (pegs[6] == "X")
-	{
-		if (pegs[7] == "X")
-		{
-			if (pegs[8] == "X")
-			{
-				set_winner();
-				cout << winner << " Wins! \n";
-				return true;
-			}
-		}
-
-	}
-	else if (pegs[0] == "O")
-	{
-		if (pegs[1] == "O")
-		{
-			if (pegs[2] == "O")
-			{
-				set_winner();
-				cout << winner << " Wins! \n";
-				return true;
-			}
-		}
-
-	}
-	else if (pegs[3] == "O")
-	{
-		if (pegs[4] == "O")
-		{
-			if (pegs[5] == "O")
-			{
-				set_winner();
-				cout << winner << " Wins! \n";
-				return true;
-			}
-		}
-
-	}
-	else if (pegs[6] == "O")
-	{
-		if (pegs[7] == "O")
-		{
-			if (pegs[8] == "O")
-			{
-				set_winner();
-				cout << winner << " Wins! \n";
-				return true;
-			}
-		}
-
-	}
-	else
-	{
-		return false;
-	}
-}
-
-bool TicTacToe3::check_diagonal_win()
-{
-	if (pegs[0] == "X")
-	{
-		if (pegs[4] == "X")
-		{
-			if (pegs[8] == "X")
-			{
-				set_winner();
-				cout << winner << " Wins! \n";
-				return true;
-			}
-		}
-
-	}
-	else if (pegs[6] == "X")
-	{
-		if (pegs[4] == "X")
-		{
-			if (pegs[2] == "X")
-			{
-				set_winner();
-				cout << winner << " Wins! \n";
-				return true;
-			}
-		}
-
-	}
-
-	else if (pegs[0] == "O")
-	{
-		if (pegs[4] == "O")
-		{
-			if (pegs[8] == "O")
-			{
-				set_winner();
-				cout << winner << " Wins! \n";
-				return true;
-			}
-		}
-
-	}
-	else if (pegs[6] == "O")
-	{
-		if (pegs[4] == "O")
-		{
-			if (pegs[2] == "O")
-			{
-				set_winner();
-				cout << winner << " Wins! \n";
-				return true;
-			}
-		}
-
-	}
-	else
-	{
-		return false;
-	}
-}
 
 
 /*
@@ -260,3 +29,41 @@ Win diagonally
 3 4 5
 6 7 8
 */
+
+bool TicTacToe3::check_row_win()
+{
+	for (std::size_t i = 0; i < 9; i += 3)
+	{
+		if (pegs[i] == pegs[i + 1] && pegs[i + 1] == pegs[i + 2] && pegs[i] != " ")
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
+bool TicTacToe3::check_column_win()
+{
+	for (std::size_t i = 0; i < 3; i++)
+	{
+		if (pegs[i] == pegs[i + 3] && pegs[i + 3] == pegs[i + 6]
+			&& pegs[i + 6] != " ")
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
+bool TicTacToe3::check_diagonal_win()
+{
+	if (pegs[0] == pegs[4] && pegs[4] == pegs[8] && pegs[0] != " " ||
+		pegs[2] == pegs[4] && pegs[4] == pegs[6] && pegs[2] != " ")
+	{
+		return true;
+	}
+
+	return false;
+}
