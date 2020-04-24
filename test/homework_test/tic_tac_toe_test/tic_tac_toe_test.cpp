@@ -3,6 +3,9 @@
 #include "tic_tac_toe.h"
 #include "tic_tac_toe_3.h"
 #include<functional>
+#include <memory>
+
+using std::make_unique; using std::unique_ptr;
 
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
@@ -53,6 +56,7 @@ TEST_CASE("Test start game with X game flow")
 
 TEST_CASE("Test win by first column", "[X wins second column]")
 {
+	std::unique_ptr<TicTacToe3> game;
 	TicTacToe3 board1;
 	std::reference_wrapper<TicTacToe> board = board1;
 	board.get().start_game("X");
@@ -72,6 +76,7 @@ TEST_CASE("Test win by first column", "[X wins second column]")
 
 TEST_CASE("Test win by second column", "[X wins second column]")
 {
+	std::unique_ptr<TicTacToe3> game;
 	TicTacToe3 board1;
 	std::reference_wrapper<TicTacToe> board = board1;
 	board.get().start_game("X");
@@ -91,6 +96,7 @@ TEST_CASE("Test win by second column", "[X wins second column]")
 
 TEST_CASE("Test win by third column", "[X wins third column]")
 {
+	std::unique_ptr<TicTacToe3> game;
 	TicTacToe3 board1;
 	std::reference_wrapper<TicTacToe> board = board1;
 
@@ -111,6 +117,7 @@ TEST_CASE("Test win by third column", "[X wins third column]")
 
 TEST_CASE("Test win by first row", "[X wins first row]")
 {
+	std::unique_ptr<TicTacToe3> game;
 	TicTacToe3 board1;
 	std::reference_wrapper<TicTacToe> board = board1;
 
@@ -131,6 +138,7 @@ TEST_CASE("Test win by first row", "[X wins first row]")
 
 TEST_CASE("Test win by second row", "[X wins second row]")
 {
+	std::unique_ptr<TicTacToe3> game;
 	TicTacToe3 board1;
 	std::reference_wrapper<TicTacToe> board = board1;
 
@@ -151,6 +159,7 @@ TEST_CASE("Test win by second row", "[X wins second row]")
 
 TEST_CASE("Test win by third row", "[X wins third row]")
 {
+	std::unique_ptr<TicTacToe3> game;
 	TicTacToe3 board1;
 	std::reference_wrapper<TicTacToe> board = board1;
 
@@ -171,6 +180,7 @@ TEST_CASE("Test win by third row", "[X wins third row]")
 
 TEST_CASE("Test win diagonal 1", "[X wins with 1 5 9]")
 {
+	std::unique_ptr<TicTacToe3> game;
 	TicTacToe3 board1;
 	std::reference_wrapper<TicTacToe> board = board1;
 
@@ -191,6 +201,7 @@ TEST_CASE("Test win diagonal 1", "[X wins with 1 5 9]")
 
 TEST_CASE("Test win diagonal 2", "[X wins with 3 5 7]")
 {
+	std::unique_ptr<TicTacToe3> game;
 	TicTacToe3 board1;
 	std::reference_wrapper<TicTacToe> board = board1;
 
@@ -212,6 +223,7 @@ TEST_CASE("Test win diagonal 2", "[X wins with 3 5 7]")
 
 TEST_CASE("Test tie")
 {
+	std::unique_ptr<TicTacToe3> game;
 	TicTacToe3 board1;
 	std::reference_wrapper<TicTacToe> board = board1;
 
