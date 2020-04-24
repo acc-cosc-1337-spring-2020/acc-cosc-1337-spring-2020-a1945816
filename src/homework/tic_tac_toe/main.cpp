@@ -2,23 +2,25 @@
 #include "tic_tac_toe_3.h"
 #include "tic_tac_toe_4.h"
 #include<iostream>
-#include<functional>
 
+#include<memory>
 using std::cout; using std::cin; using std::string;
+using std::unique_ptr; using std::make_unique;
 
 int main()
 {
-	TicTacToeManager manager;
+	
+	unique_ptr<TicTacToeManager> manager;
 	string cont;
-	std::vector<std::reference_wrapper<TicTacToe>> games;
+	std::vector<std::unique_ptr<TicTacToe>> games;
 
 	do
 	{
 		int game_type;
 		cout << "\nTictactoe 3 or 4?";
 		cin >> game_type;
-		TicTacToe3 game3;
-		TicTacToe4 game4;
+		unique_ptr<TicTacToe> game3 = make_unique<TicTacToe3>(); //Creates an instance of TTT3
+		unique_ptr<TicTacToe> game4 = make_unique<TicTacToe4>();//Creates an instance of TTT4
 
 		if (game_type == 3)
 		{
@@ -29,7 +31,7 @@ int main()
 			games.push_back(game4);
 		}
 
-		std::reference_wrapper<TicTacToe> game = games.back();
+		std::unique_ptr<TicTacToe> game;
 
 		string player = "Y";
 
@@ -64,7 +66,7 @@ int main()
 
 		} while (!game.get().game_over());
 
-		manager.save_game(game.get());
+		manager->save_game(game.get());
 
 		cout << "\nWinner: " << game.get().get_winner() << "\n";
 
