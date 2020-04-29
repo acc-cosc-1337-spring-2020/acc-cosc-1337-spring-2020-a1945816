@@ -47,6 +47,42 @@ void use_vector()
 	v1 = nullptr;
 
 }
+Vector get_vector()
+{
+	Vector v(3);
+	return v;
+}
+
+/*
+Get the dynamic memory from v
+Get the size from v
+point thev.nums to nullptr
+*/
+Vector::Vector(Vector && v)
+	: size{v.size}, nums{v.nums}
+{
+	v.size = 0;
+	v.nums = nullptr;
+}
+
+/*
+Deallocate origional dynamic memory 
+Get the dynamic memory for v
+Get the size from v
+point v.nums to nullptr
+set v.size to 0
+*/
+Vector & Vector::operator=(Vector && v)
+{
+	delete nums;
+	nums = v.nums;
+	size = v.size;
+	v.nums = nullptr;
+	v.size = 0;
+	return *this;
+	
+}
+
 /*
 Allocate temporary dynamic arroy of size v
 copy v1elements to temp array
