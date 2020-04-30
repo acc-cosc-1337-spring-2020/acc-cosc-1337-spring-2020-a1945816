@@ -26,6 +26,28 @@ Vector::Vector(const Vector & v)
 	}
 }
 
+/*
+Make sure new allocation is greater than space
+Create temp dynamic array of size new allocation
+copy values from old memory array to temporary array
+
+*/
+void Vector::Reserve(size_t new_allocation)
+{
+	if (new_allocation <= space)
+	{
+		return;
+	}
+
+	int* temp = new int[new_allocation];
+
+	for (size_t i = 0; i < size; ++i)
+	{
+		temp[i] = nums[i];
+	}
+	delete[] nums;
+	space = new_allocation;
+}
 
 /*
 Release dynamic memory

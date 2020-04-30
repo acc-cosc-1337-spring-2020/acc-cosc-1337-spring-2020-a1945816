@@ -18,12 +18,14 @@ public:
 	size_t Size() const { return size;  }
 	int& operator[](int i) { return nums[i]; }
 	int& operator[](int i)const { return nums[i]; }
+	void Reserve(size_t new_allocation);
+	size_t Capacity() const { return space; }
 	~Vector(); // destructor - rule of 3
 private:
 	size_t size;
+	size_t space{ 0 };
 	int* nums;
 };
-
 
 
 #endif // !MY_VECTOR_H
