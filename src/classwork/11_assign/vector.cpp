@@ -46,7 +46,40 @@ void Vector::Reserve(size_t new_allocation)
 		temp[i] = nums[i];
 	}
 	delete[] nums;
+	nums = temp;
 	space = new_allocation;
+}
+
+/*
+Reserve space
+Initializa element values beyond size to 0
+*/
+void Vector::Resize(size_t new_size)
+{
+	Reserve(new_size);
+
+	for (size_t i = 0 ; i < new_size; ++i)
+	{
+		nums[i] = 0;
+
+	}
+	size = new_size;
+}
+
+void Vector::Push_Back(int value)
+{
+	if (space == 8)
+	{
+		Reserve(RESERVE_DEFAULT_SIZE);
+	}
+	else if(size == space)
+	{
+		Reserve(space * RESERVE_DEFAULT_MULTIPLIER);
+
+	}
+
+	nums[size] = value;
+	++size;
 }
 
 /*
