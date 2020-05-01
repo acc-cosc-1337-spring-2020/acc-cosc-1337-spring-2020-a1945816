@@ -4,10 +4,12 @@
 #include<vector>
 #include<memory>
 #include "tic_tac_toe.h"
-
+#include "tic_tac_toe_data.h"
 class TicTacToeManager
 {
 public:
+	TicTacToeManager() = default;
+	TicTacToeManager(TicTacToeData&data);
 	void save_game(std::unique_ptr<TicTacToe> & game);
 	friend std::ostream& operator<<(std::ostream& out, const TicTacToeManager& m);
 private:

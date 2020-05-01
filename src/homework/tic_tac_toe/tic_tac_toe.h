@@ -5,16 +5,18 @@
 #include <string>
 #include <vector>
 #include<iostream>
-
+using std::string;
 class TicTacToe
 {
 public:
 	TicTacToe(int size) : pegs(size*size, " ") {}
+	TicTacToe(std::vector<string> p, string win) : player(p), winner(win) {}
 	bool game_over();
 	void start_game(std::string first_player);
 	void mark_board(int position);
 	std::string get_player() const { return player; }
 	std::string get_winner()const { return winner; }
+	std::vector <string> get_pegs() const { return pegs; }
 	friend std::ostream& operator<<(std::ostream& out, const TicTacToe& t);
 	friend std::istream& operator>>(std::istream& in, TicTacToe& t);
 protected:
