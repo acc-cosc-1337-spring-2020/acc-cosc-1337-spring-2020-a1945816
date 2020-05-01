@@ -6,32 +6,30 @@ TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
 }
 
-TEST_CASE("test class copy with stack variables")
+TEST_CASE("Test class copy with stack variables")
 {
 	Vector v1(3);
 	Vector v2 = v1;
 
-	REQUIRE (v1.Size() == v2.Size());
-
+	REQUIRE(v1.Size() == v2.Size());
 }
 
-TEST_CASE("Test class copy with dynamic memory(heap variables)") 
+TEST_CASE("Test class copy with dynamic(heap) variables")
 {
 	Vector v1(3);
 	Vector v2 = v1;
-
 
 	REQUIRE(v1.Size() == v2.Size());
 	v1[1] = 5;
 
 	REQUIRE(v1[1] != v2[1]);
 	REQUIRE(v1[1] == 5);
-	REQUIRE(v1[2] == 0);
+	REQUIRE(v2[1] == 0);
 }
 
-TEST_CASE("Test class copy deynamic heap w 2 variables")
+TEST_CASE("Test class copy dynamic heap w 2 variables")
 {
-	Vector v1(2);
+	Vector v1(3);
 	Vector v2(3);
 	v2 = v1;
 	v1[1] = 5;
@@ -50,7 +48,7 @@ TEST_CASE("Test vector capacity and reserve")
 	REQUIRE(v.Size() == 3);
 }
 
-TEST_CASE("vector resize")
+TEST_CASE("Test vector resize")
 {
 	Vector v(3);
 	v[0] = 3;
@@ -62,10 +60,11 @@ TEST_CASE("vector resize")
 	REQUIRE(v[1] == 4);
 	REQUIRE(v[2] == 5);
 	REQUIRE(v[3] == 0);
-
+	REQUIRE(v[4] == 0);
+	REQUIRE(v[5] == 0);
 }
 
-TEST_CASE("test vector push back")
+TEST_CASE("Test vector push back")
 {
 	Vector v(3);
 	v.Push_Back(5);
