@@ -1,5 +1,3 @@
-//
-
 #ifndef MY_VECTOR_H
 #define MY_VECTOR_H
 #include<cstddef>
@@ -10,6 +8,7 @@ Rule of 3 - C++98
 class Vector
 {
 public:
+	Vector();
 	Vector(size_t sz);
 	Vector(const Vector& v);//copy constructor - Rule of 3 c++98
 	Vector& operator=(const Vector& v);//copy assignment- Rule of 3 c++98
