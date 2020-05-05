@@ -3,7 +3,7 @@
 
 Vector::Vector()
 	: size {0}, nums{nullptr}, space{0}
-{
+{  
 }
 /*
 Initialize nums to size dynamic array.
@@ -42,6 +42,20 @@ return a self copy of Vector
 */
 Vector & Vector::operator=(const Vector & v)
 {
+	if (this == &v) //prevent self copy
+	{
+		return *this;
+	}
+
+	if (v.size <= space)
+	{
+		for (size_t i = 0; i < v.size; ++i)
+		{
+			nums[i] = v[i];
+		}
+		return *this; //Retrun myself
+	}
+
 	int* temp = new int[v.size];
 
 	for (size_t i = 0; i < v.size; ++i)
